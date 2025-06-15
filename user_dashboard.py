@@ -1,4 +1,3 @@
-
 import streamlit as st
 import pandas as pd
 
@@ -36,8 +35,10 @@ for _, row in filtered.iterrows():
             st.markdown(f"**User ID:** `{row['user_id']}`")
             st.markdown(f"**Handle:** `{row['handle']}`")
             st.markdown(f"**Country / Region:** {row['country']} / {row['region']}")
-            st.markdown(f"**Action:** {row['action_type']} - {row['reason']}  
-**Timestamp:** {row['action_ts']}")
+            st.markdown(
+                f"**Action:** {row['action_type']} - {row['reason']}  \n"
+                f"**Timestamp:** {row['action_ts']}"
+            )
             st.markdown(f"[🔗 View Profile]({row['profile_url']})", unsafe_allow_html=True)
 
 st.download_button(
