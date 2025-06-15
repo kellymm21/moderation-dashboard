@@ -73,7 +73,7 @@ with tab1:
                 st.image(row["profile_photo"], width=100)
             with cols[1]:
                 st.markdown(f"**User ID:** `{row['user_id']}`")
-                st.markdown(f"**Handle:** `{row['handle']}`")
+                # st.markdown(f"**Handle:** `{row['handle']}`")  # removed due to missing column
                 st.markdown(f"**Country / Region:** {row['country']} / {row['region']}")
                 st.markdown(
                     f"**Action:** {row['action_type']} - {row['reason']}  \n"
@@ -119,6 +119,6 @@ with tab2:
                     st.image(row["profile_photo"], width=100)
                 with cols[1]:
                     st.markdown(f"**User ID:** `{row['user_id']}`")
-                    st.markdown(f"**Handle:** `{row['handle']}`")
+                    # st.markdown(f"**Handle:** `{row['handle']}`")  # removed due to missing column
                     st.markdown(f"**Similarity Score:** `{row['similarity']:.4f}`")
                     st.markdown(f"[🔗 View Profile]({row['profile_url']})", unsafe_allow_html=True)
