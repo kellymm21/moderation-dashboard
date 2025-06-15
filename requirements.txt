@@ -1,2 +1,7 @@
 streamlit
 pandas
+torch
+torchvision
+scikit-learn
+Pillow
+requests
