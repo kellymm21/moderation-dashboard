@@ -79,7 +79,7 @@ with tab1:
                     f"**Action:** {row['action_type']} - {row['reason']}  \n"
                     f"**Timestamp:** {row['action_ts']}"
                 )
-                st.markdown(f"[🔗 View Profile]({row['profile_url']})", unsafe_allow_html=True)
+                st.markdown(f"[🔗 View Profile]({row['profile_photo']})", unsafe_allow_html=True)
 
     st.download_button(
         "⬇️ Download Filtered CSV",
@@ -121,4 +121,4 @@ with tab2:
                     st.markdown(f"**User ID:** `{row['user_id']}`")
                     # st.markdown(f"**Handle:** `{row['handle']}`")  # removed due to missing column
                     st.markdown(f"**Similarity Score:** `{row['similarity']:.4f}`")
-                    st.markdown(f"[🔗 View Profile]({row['profile_url']})", unsafe_allow_html=True)
+                    st.markdown(f"[🔗 View Profile]({row['profile_photo']})", unsafe_allow_html=True)
