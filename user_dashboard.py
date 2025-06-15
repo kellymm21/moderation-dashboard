@@ -24,8 +24,8 @@ def load_model():
     model.eval()
     return model
 
-@st.cache_data
-def compute_embeddings(df, model, transform):
+@st.cache_resource
+def compute_embeddings(df, _model, transform):
     embeddings = []
     for url in df["profile_photo"]:
         try:
@@ -33,7 +33,7 @@ def compute_embeddings(df, model, transform):
             img = Image.open(BytesIO(response.content)).convert("RGB")
             img_tensor = transform(img).unsqueeze(0)
             with torch.no_grad():
-                emb = model(img_tensor).squeeze().numpy()
+                emb = _model(img_tensor).squeeze().numpy()
             embeddings.append(emb)
         except:
             embeddings.append(np.zeros(512))
