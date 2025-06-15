@@ -27,7 +27,7 @@ def load_model():
 @st.cache_resource
 def compute_embeddings(df, _model, _transform):
     embeddings = []
-    for url in df["profile_photo"]:
+    for url in df["profile_url"]:
         try:
             response = requests.get(url, timeout=5)
             img = Image.open(BytesIO(response.content)).convert("RGB")
@@ -70,7 +70,7 @@ with tab1:
         with st.container():
             cols = st.columns([1, 4])
             with cols[0]:
-                st.image(row["profile_photo"], width=100)
+                st.image(row["profile_url"], width=100)
             with cols[1]:
                 st.markdown(f"**User ID:** `{row['user_id']}`")
                 # st.markdown(f"**Handle:** `{row['handle']}`")  # removed due to missing column
@@ -79,7 +79,7 @@ with tab1:
                     f"**Action:** {row['action_type']} - {row['reason']}  \n"
                     f"**Timestamp:** {row['action_ts']}"
                 )
-                st.markdown(f"[🔗 View Profile]({row['profile_photo']})", unsafe_allow_html=True)
+                st.markdown(f"[🔗 View Profile]({row['profile_url']})", unsafe_allow_html=True)
 
     st.download_button(
         "⬇️ Download Filtered CSV",
@@ -116,9 +116,9 @@ with tab2:
             with st.container():
                 cols = st.columns([1, 4])
                 with cols[0]:
-                    st.image(row["profile_photo"], width=100)
+                    st.image(row["profile_url"], width=100)
                 with cols[1]:
                     st.markdown(f"**User ID:** `{row['user_id']}`")
                     # st.markdown(f"**Handle:** `{row['handle']}`")  # removed due to missing column
                     st.markdown(f"**Similarity Score:** `{row['similarity']:.4f}`")
-                    st.markdown(f"[🔗 View Profile]({row['profile_photo']})", unsafe_allow_html=True)
+                    st.markdown(f"[🔗 View Profile]({row['profile_url']})", unsafe_allow_html=True)
